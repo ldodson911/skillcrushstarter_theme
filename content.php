@@ -10,6 +10,7 @@
 		</div>
 		<footer class="entry-footer">
 			<div class="entry-meta">
+				<p>Author: <?php the_author(); ?> / Posted in: <?php the_category(','); ?> / 
 				<span class="entry-terms comments"><?php echo get_comments_number(); ?> comments</span>
 			</div>
 		</footer>
