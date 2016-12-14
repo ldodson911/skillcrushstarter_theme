@@ -318,6 +318,11 @@ body {
 	content: '/';
 	padding: 0 10px;
 }
+
+.entry-author {
+	color: #a6a6a6;
+	font-size: 10px;
+}
 .post-entry .read-more {
 	color: #150300;
 	font-size: 0.8em;
