@@ -662,3 +662,48 @@ input::-webkit-input-placeholder {
 #sidebar .widget_archive ul li a {
 	color: #3b3b3b;
 }
+/* Next / prev */
+#navigation {
+	background: #fff;
+	border: solid #bfbfbf;
+	border-width: 1px 0;
+	clear: both;
+	font: 0.8em/4.08 'OpenSans', Arial, sans-serif;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 40px;
+	text-align: center;
+}
+#navigation .left {
+	float: left;
+}
+#navigation .right {
+	float: right;
+}
+#navigation .left a,
+#navigation .right a {
+	color: #45ac9d;
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+#navigation .left a span,
+#navigation .right a span {
+	color: #150300;
+}
+#navigation .left a span {
+	padding-left: 8px;
+}
+#navigation .right a span {
+	padding-right: 8px;
+}
+#navigation .left a:hover,
+#navigation .right a:hover {
+	text-decoration: none;
+}
+#navigation .left a:hover span,
+#navigation .right a:hover span {
+	text-decoration: underline;
+}
+/* End next / prev */
