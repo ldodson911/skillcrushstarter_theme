@@ -54,3 +54,49 @@ function skillcrushstarter_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'skillcrushstarter_widgets_init' );
+
+// defines custom markup for post comments
+function skillcrush_comments($comment, $args, $depth) {
+	$comment  = '<li class="comment">';
+	$comment .=	'<header class="comment-head">';
+	$comment .= '<span class="comment-author">' . get_comment_author() . '</span>';
+	$comment .= '<span class="comment-meta">' . get_comment_date('m/d/Y') . '&emsp;|&emsp;' . get_comment_reply_link(array('depth' => $depth, 'max_depth' => 5)) . '</span>';
+	$comment .= '</header>';
+	$comment .= '<div class="comment-body">';
+	$comment .= '<p>' . get_comment_text() . '</p>';
+	$comment .= '</div>';
+	$comment .= '</li>';
+
+	echo $comment;
+}
+
+    // modify comment form
+    add_filter( 'comment_form_fields', 'modify_comment_form_fields' );
+
+     
+
+    function modify_comment_form_fields( $fields ) {
+    	
+    	// move Comment field to the end
+    	$saved_comment_field = $fields['comment'];
+    	unset( $fields['comment'] );
+    	$fields['comment'] = $saved_comment_field;
+    	
+    	// delete Website (url) field
+    	unset( $fields['url'] );
+    	
+    	// change labels on some fields
+    	$fields['email'] = str_replace( 'Email', 'Email (hidden)', $fields['email'] );
+    	$fields['comment'] = str_replace( 'Comment', 'Your Comment', $fields['comment'] );
+    	
+    	return $fields;
+    }
+
+//Register post thumbnails
+add_theme_support( 'post_thumbnails' );
+
+// changes excerpt symbol
+function custom_excerpt_more($more) {
+	return '...';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
